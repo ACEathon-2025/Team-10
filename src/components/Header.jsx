@@ -2,37 +2,48 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Header.css';
 
-const Header = ({ toggleAuthPage }) => {
+// Accept setCurrentPage as a prop
+const Header = ({ toggleAuthPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  // Helper function to handle navigation clicks
+  const handleNavClick = (page) => {
+    setCurrentPage(page);
+    if (isOpen) {
+      toggleMenu(); // Close mobile menu on click
+    }
+  };
+
   return (
     <header className="header">
       <nav className="navbar">
-        <a href="/" className="nav-logo">
+        {/* Updated logo to be a button that navigates home */}
+        <button className="nav-logo-button" onClick={() => handleNavClick('home')}>
           RupeeRoute
-        </a>
+        </button>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <a href="#learn" className="nav-link" onClick={toggleMenu}>
+            {/* Updated 'Learn' to be a button that navigates to the learn page */}
+            <button className="nav-link-button" onClick={() => handleNavClick('learn')}>
               Learn
-            </a>
+            </button>
           </li>
           <li className="nav-item">
-            <a href="#practice" className="nav-link" onClick={toggleMenu}>
+            <button className="nav-link-button" onClick={() => alert('Practice page coming soon!')}>
               Practice
-            </a>
+            </button>
           </li>
           <li className="nav-item">
-            <a href="#plan" className="nav-link" onClick={toggleMenu}>
+            <button className="nav-link-button" onClick={() => alert('Plan page coming soon!')}>
               Plan
-            </a>
+            </button>
           </li>
           <li className="nav-item-cta">
             <button className="cta-button" onClick={toggleAuthPage}>
