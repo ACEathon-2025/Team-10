@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# FinNovate 💸
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[cite_start]A financial literacy web application designed for the **ACEATHON 2025** Finance theme[cite: 1, 8]. [cite_start]FinNovate provides a guided journey to help Indian students transition from managing education debt to building long-term wealth[cite: 50].
 
-## Available Scripts
+## 🎯 The Problem
+[cite_start]With over **₹90,000 crore in outstanding education loans** and a national **financial literacy rate of only 27%**, India's youth face significant financial challenges upon graduation[cite: 11]. [cite_start]This lack of financial knowledge often leads to increased loan defaults (NPAs), financial stress, and a delay in personal wealth creation, which limits the economic potential of our demographic dividend[cite: 13].
 
-In the project directory, you can run:
+## ✨ Our Solution
+[cite_start]FinNovate tackles this problem with a unique **"Debt-First" approach** that focuses on the most immediate financial concern for students: their education loan[cite: 15, 49]. [cite_start]Our platform is a complete, step-by-step guide that takes users from learning the absolute basics to building their own personalized financial plan[cite: 16, 17].
 
-### `npm start`
+## 🚀 Key Features
+Our application follows a simple three-step methodology:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **1. Learn 📚**
+    * [cite_start]Access curated, bite-sized micro-learning modules on essential Indian financial topics like CIBIL scores, SIPs, and retirement planning[cite: 20]. [cite_start]Each 5-minute lesson includes interactive quizzes to ensure comprehension[cite: 20, 21].
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **2. Practice 🕹️**
+    * [cite_start]Apply knowledge in a hyper-realistic, **risk-free simulation engine**[cite: 23]. [cite_start]Users can practice investing with virtual money on a simulated Indian stock market (NSE/BSE) or model different repayment strategies for their education loan[cite: 24].
 
-### `npm test`
+* **3. Plan 📈**
+    * [cite_start]Transition from practice to reality with **personalized financial roadmaps**[cite: 28]. [cite_start]The app analyzes simulation performance to generate actionable insights, including optimized debt repayment schedules and custom investment strategies[cite: 28, 29].
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Built With
+This web application was built using modern web technologies:
+* [React.js](https://reactjs.org/)
+* [CSS3](https://en.wikipedia.org/wiki/CSS) & Flexbox
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [JavaScript (ES6+)](https://www.javascript.com/)
 
-### `npm run build`
+## ⚙️ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy up and running, follow these simple steps.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+* npm
+    ```sh
+    npm install npm@latest -g
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+1. Clone the repo
+   ```sh
+   git clone [https://github.com/your_username/FinNovate.git](https://github.com/your_username/FinNovate.git)
