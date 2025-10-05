@@ -12,7 +12,7 @@ const Hero = ({ toggleAuthPage }) => {
           <p className="hero-subheadline">
             With over ₹90,000 crore in education loans and a national financial
             literacy rate of only 27%, India's youth face significant challenges. 
-            FinNovate offers a simple, step-by-step guide to help you manage debt, 
+            RupeeRoute offers a simple, step-by-step guide to help you manage debt, 
             invest wisely, and build a secure financial future.
           </p>
           <button className="hero-cta-button" onClick={toggleAuthPage}>

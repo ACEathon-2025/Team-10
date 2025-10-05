@@ -8,38 +8,65 @@
 .footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px; /* Increased gap for better spacing */
+}
+
+.footer-brand {
+  flex: 2; /* Allow brand to take more space */
+  min-width: 250px;
 }
 
 .footer-brand h3 {
-  margin: 0;
+  margin: 0 0 5px 0;
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
 }
 
 .footer-brand p {
-  margin: 5px 0 0;
+  margin: 0;
   font-size: 14px;
   color: #94a3b8;
 }
 
-.footer-socials {
+.footer-links, .footer-socials {
+  flex: 1; /* Allow links and socials to share space */
+  min-width: 150px;
+}
+
+.footer-links h4, .footer-socials h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  display: block; /* Makes the link easier to click */
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+.social-icons-wrapper {
   display: flex;
   gap: 20px;
 }
 
-.footer-socials a {
+.social-icons-wrapper a {
   color: #e2e8f0;
   font-size: 24px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-socials a:hover {
+.social-icons-wrapper a:hover {
   color: #38bdf8;
   transform: translateY(-3px);
 }

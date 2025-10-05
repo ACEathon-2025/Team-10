@@ -13,7 +13,7 @@ const Header = ({ toggleAuthPage }) => {
     <header className="header">
       <nav className="navbar">
         <a href="/" className="nav-logo">
-          FinNovate
+          RupeeRoute
         </a>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
