@@ -26,18 +26,3 @@ This web application was built using modern web technologies:
 * [CSS3](https://en.wikipedia.org/wiki/CSS) & Flexbox
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [JavaScript (ES6+)](https://www.javascript.com/)
-
-## ⚙️ Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-* npm
-    ```sh
-    npm install npm@latest -g
-    ```
-
-### Installation
-1. Clone the repo
-   ```sh
-   git clone [https://github.com/your_username/FinNovate.git](https://github.com/your_username/FinNovate.git)
