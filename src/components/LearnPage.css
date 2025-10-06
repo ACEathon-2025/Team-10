@@ -1,7 +1,9 @@
+/* LearnPage.css */
+
 .learn-page {
   background-color: #f8fafc;
   min-height: 100vh;
-  padding: 120px 20px 40px 20px; /* Add top padding to account for sticky header */
+  padding: 100px 20px 40px 20px; /* UPDATED: Reduced top padding */
 }
 
 .learn-header {
@@ -11,7 +13,7 @@
 }
 
 .learn-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem; /* UPDATED: Adjusted font size for mobile */
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 10px;
@@ -25,7 +27,7 @@
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 20px; /* UPDATED: Slightly reduced gap */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -62,7 +64,7 @@
   font-size: 1rem;
   color: #475569;
   line-height: 1.6;
-  flex-grow: 1; /* Pushes the button to the bottom */
+  flex-grow: 1;
   margin-bottom: 25px;
 }
 
@@ -91,4 +93,18 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* NEW: Media query for mobile typography */
+@media screen and (max-width: 768px) {
+    .learn-header h1 {
+        font-size: 2rem;
+    }
+    .learn-header p {
+        font-size: 1rem;
+    }
+    .modules-grid {
+        /* On mobile, use a slightly smaller minmax value */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 }

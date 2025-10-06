@@ -1,49 +1,88 @@
+/* AuthPage.css */
+
 .auth-page-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(15, 23, 42, 0.8); /* Dark blue with transparency */
+  background-color: rgba(15, 23, 42, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(5px);
+  padding: 20px;
 }
 
 .auth-container {
+  display: flex; /* This is key for the two-column layout */
   position: relative;
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 16px; /* Slightly more rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 420px;
-  text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
+  max-width: 960px; /* Wider container for two columns */
+  min-height: 600px;
+  overflow: hidden; /* Ensures children respect the border-radius */
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Left Promo Panel --- */
+.auth-promo-panel {
+  flex: 1; /* Takes up half the space */
+  background-color: #f0f9ff; /* A light, inviting blue */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.promo-image {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.promo-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.promo-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  margin-top: 15px;
+}
+
+/* --- Right Form Panel --- */
+.auth-form-panel {
+  flex: 1; /* Takes up the other half */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
 }
 
 .close-button {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   color: #94a3b8;
   cursor: pointer;
+  z-index: 10;
   transition: color 0.3s ease;
 }
 
@@ -56,22 +95,24 @@
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 8px;
+  text-align: left; /* Align text to the left */
 }
 
 .auth-subtitle {
   font-size: 1rem;
   color: #475569;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px; /* Increased gap */
 }
 
 .auth-form input {
-  padding: 12px 15px;
+  padding: 14px 18px; /* More padding */
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 1rem;
@@ -87,28 +128,62 @@
 .auth-button {
   background-color: #38bdf8;
   color: #ffffff;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 10px;
 }
 
 .auth-button:hover {
   background-color: #0ea5e9;
+  transform: translateY(-2px);
 }
 
 .auth-switch {
   margin-top: 25px;
   font-size: 0.9rem;
   color: #475569;
+  text-align: left;
 }
 
 .auth-switch span {
   color: #38bdf8;
   font-weight: 600;
   cursor: pointer;
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 860px) {
+  /* On smaller screens, hide the promo image panel */
+  .auth-promo-panel {
+    display: none;
+  }
+
+  .auth-container {
+    flex-direction: column;
+    max-width: 450px; /* Revert to a modal-like width */
+    min-height: auto;
+  }
+
+  .auth-form-panel {
+    padding: 40px 30px;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+    text-align: center; /* Center text on mobile */
+  }
+
+  .auth-subtitle {
+    text-align: center;
+  }
+
+  .auth-switch {
+    text-align: center;
+  }
 }

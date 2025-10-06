@@ -1,3 +1,5 @@
+/* Hero.css */
+
 .hero-section {
   background-color: #f8fafc;
   display: flex;
@@ -36,8 +38,6 @@
   margin-bottom: 30px;
 }
 
-/* src/components/Hero.css */
-
 .hero-cta-button {
   display: inline-block;
   background-color: #38bdf8;
@@ -49,8 +49,8 @@
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-  border: none; /* Add this to remove the border */
-  cursor: pointer; /* Add this to ensure the mouse becomes a pointer */
+  border: none;
+  cursor: pointer;
 }
 
 .hero-cta-button:hover {
@@ -70,14 +70,21 @@
   height: auto;
 }
 
+/* UPDATED Media Query for better mobile view */
 @media screen and (max-width: 960px) {
+  .hero-section {
+    /* NEW: Reduce padding on smaller screens */
+    padding: 60px 20px;
+  }
+
   .hero-container {
     flex-direction: column;
     text-align: center;
   }
 
   .hero-headline {
-    font-size: 2.5rem;
+    /* UPDATED: Further reduce font size for small devices */
+    font-size: 2.2rem; 
   }
 
   .hero-subheadline {

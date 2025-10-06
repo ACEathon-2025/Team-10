@@ -1,7 +1,10 @@
+/* Footer.css */
+
 .footer-container {
   background-color: #0f172a;
+  background-image: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
   color: #e2e8f0;
-  padding: 40px 20px;
+  padding: 50px 20px;
   font-family: 'Arial', sans-serif;
 }
 
@@ -11,19 +14,26 @@
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
-  gap: 40px; /* Increased gap for better spacing */
+  gap: 40px;
 }
 
 .footer-brand {
-  flex: 2; /* Allow brand to take more space */
+  flex: 2;
   min-width: 250px;
 }
 
-.footer-brand h3 {
-  margin: 0 0 5px 0;
-  font-size: 24px;
-  font-weight: bold;
+.footer-brand .brand-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
   color: #ffffff;
+}
+
+.footer-brand h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .footer-brand p {
@@ -33,7 +43,7 @@
 }
 
 .footer-links, .footer-socials {
-  flex: 1; /* Allow links and socials to share space */
+  flex: 1;
   min-width: 150px;
 }
 
@@ -42,18 +52,40 @@
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 15px 0;
+  letter-spacing: 0.5px;
 }
 
 .footer-links a {
   color: #94a3b8;
   text-decoration: none;
-  display: block; /* Makes the link easier to click */
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #38bdf8;
 }
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #38bdf8;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 
 .social-icons-wrapper {
   display: flex;
@@ -62,24 +94,41 @@
 
 .social-icons-wrapper a {
   color: #e2e8f0;
-  font-size: 24px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 26px;
+  transition: all 0.3s ease;
 }
 
 .social-icons-wrapper a:hover {
   color: #38bdf8;
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.1);
 }
 
 .footer-bottom {
   border-top: 1px solid #334155;
   text-align: center;
-  margin-top: 30px;
-  padding-top: 20px;
+  margin-top: 40px;
+  padding-top: 30px;
 }
 
 .footer-bottom p {
   margin: 0;
   font-size: 12px;
   color: #94a3b8;
+}
+
+/* NEW: Media query to center content on mobile */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* Center all flex items */
+  }
+
+  .social-icons-wrapper {
+    justify-content: center; /* Center social icons */
+  }
+
+  .footer-brand .brand-title {
+    justify-content: center; /* Center brand title */
+  }
 }
