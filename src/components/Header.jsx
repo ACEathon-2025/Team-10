@@ -6,9 +6,8 @@ import './Header.css';
 const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const profileRef = useRef(null);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -48,27 +47,21 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
     }
   };
 
-  // Scroll effect for compact header and subtle background
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   // Close profile menu on outside click
   useEffect(() => {
-    const handleClick = (e) => {
-      if (profileRef.current && !profileRef.current.contains(e.target)) {
-        setIsProfileOpen(false);
+    const handleClickOutside = (e) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
+        setIsProfileMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, []);
+    if (isProfileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isProfileMenuOpen]);
 
   return (
-    <header className={isScrolled ? 'header scrolled' : 'header'}>
+    <header className="header">
       <nav className="navbar">
         {/* Updated logo to be a button that navigates home */}
         <button className="nav-logo-button" onClick={() => handleNavClick('home')}>
@@ -94,28 +87,46 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
               Plan
             </button>
           </li>
-          {user ? (
-            <li className="nav-item" ref={profileRef}>
-              <button className="user-chip as-button" onClick={() => setIsProfileOpen(!isProfileOpen)} title={user.email}>
-                <span className="user-avatar">{(user.displayName || user.email || 'U').charAt(0).toUpperCase()}</span>
-                <span className="user-name">{user.displayName || user.email}</span>
-              </button>
-              {isProfileOpen && (
-                <div className="profile-menu">
-                  <div className="profile-meta">
-                    <div className="meta-name">{user.displayName || 'User'}</div>
-                    <div className="meta-email">{user.email}</div>
-                  </div>
-                  <button className="profile-item" onClick={() => { setIsProfileOpen(false); handleNavClick('learn'); }}>Learn</button>
-                  <button className="profile-item danger" onClick={() => { setIsProfileOpen(false); onLogout && onLogout(); }}>Log out</button>
-                </div>
-              )}
-            </li>
-          ) : (
+          {!user && (
             <li className="nav-item-cta">
               <button className="cta-button" onClick={toggleAuthPage}>
                 Get Started
               </button>
+            </li>
+          )}
+          {user && (
+            <li className="nav-item profile-item" ref={profileMenuRef}>
+              <button 
+                className="profile-pill profile-trigger" 
+                title={user.email}
+                onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                aria-haspopup="menu"
+                aria-expanded={isProfileMenuOpen}
+              >
+                {user.photoURL ? (
+                  <img className="avatar-image" src={user.photoURL} alt={user.displayName || 'User'} />
+                ) : (
+                  <div className="avatar-circle-gradient">{(user.displayName || user.email || 'U').charAt(0).toUpperCase()}</div>
+                )}
+                <span className="profile-name">{user.displayName || user.email}</span>
+                <svg className={`chevron-icon ${isProfileMenuOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {isProfileMenuOpen && (
+                <div className="profile-menu-wrapper">
+                  <ul className="profile-menu" role="menu">
+                    <li role="menuitem" className="profile-menu-item logout" onClick={() => { setIsProfileMenuOpen(false); onLogout(); }}>
+                      <svg className="menu-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                      </svg>
+                      <span>Logout</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </li>
           )}
           <li className="nav-item nav-item-theme">

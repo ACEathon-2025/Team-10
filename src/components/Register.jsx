@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from '
 import { auth, googleProvider } from '../firebase/config';
 import { FaGoogle } from 'react-icons/fa';
 
-const Register = ({ toggleView, onAuthed }) => {
+const Register = ({ toggleView, onSuccess }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const Register = ({ toggleView, onAuthed }) => {
       });
       
       console.log('User registered:', user.email);
-      if (onAuthed) onAuthed();
+      if (onSuccess) onSuccess();
       // Redirect to dashboard or home page
       // window.location.href = '/dashboard';
     } catch (error) {
@@ -44,7 +44,7 @@ const Register = ({ toggleView, onAuthed }) => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       console.log('User signed in with Google:', user.displayName, user.email);
-      if (onAuthed) onAuthed();
+      if (onSuccess) onSuccess();
       // Redirect to dashboard or home page
       // window.location.href = '/dashboard';
     } catch (error) {
