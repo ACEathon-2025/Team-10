@@ -64,8 +64,9 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
     <header className="header">
       <nav className="navbar">
         {/* Updated logo to be a button that navigates home */}
-        <button className="nav-logo-button" onClick={() => handleNavClick('home')}>
-          RupeeRoute
+        <button className="nav-logo-button logo-animated" onClick={() => handleNavClick('home')}>
+          <span className="logo-rupee">₹</span>
+          <span className="logo-text">RupeeRoute</span>
         </button>
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}

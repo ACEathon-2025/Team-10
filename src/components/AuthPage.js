@@ -14,8 +14,8 @@ const AuthPage = ({ toggleAuthPage }) => {
   };
 
   return (
-    <div className="auth-page-overlay">
-      <div className="auth-container">
+    <div className="auth-page-overlay modal-overlay">
+      <div className="auth-container page-content">
         <button className="close-button" onClick={toggleAuthPage}>
           <FaTimes />
         </button>

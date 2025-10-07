@@ -2,7 +2,7 @@
 
 .header {
   background-color: var(--header-bg);
-  height: 80px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 70px;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
@@ -29,16 +29,104 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: inherit;
   display: flex;
   align-items: center;
   height: 100%;
 }
 
+/* Enhanced Logo Styling with Finance Theme */
 .nav-logo-button {
   color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 900;
+  position: relative;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.logo-rupee {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  font-weight: 900;
   font-size: 2rem;
-  font-weight: bold;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Logo Animations */
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+}
+
+.nav-logo-button:hover .logo-rupee {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.1) translateY(-5px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  75% {
+    transform: scale(1.08) translateY(-3px);
+  }
+}
+
+.nav-logo-button:hover .logo-text {
+  color: var(--accent-color);
+  letter-spacing: 0px;
+  transform: translateX(2px);
+}
+
+.nav-logo-button::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+.nav-logo-button:hover::after {
+  width: 100%;
+}
+
+/* Pulsing effect for logo */
+.logo-animated {
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+  }
 }
 
 .nav-link-button {
@@ -365,8 +453,16 @@
     color: var(--text-primary);
   }
   
-  /* NEW: Slightly reduce logo size on mobile */
+  /* Responsive Logo Adjustments */
   .nav-logo-button {
-      font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+  
+  .logo-rupee {
+    font-size: 1.65rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
   }
 }

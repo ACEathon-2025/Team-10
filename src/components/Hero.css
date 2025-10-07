@@ -5,8 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 20px;
-  min-height: 90vh;
+  padding: 40px 20px 60px 20px;
+  min-height: 75vh;
   transition: background-color 0.3s ease;
 }
 
@@ -16,7 +16,7 @@
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  gap: 40px;
+  gap: 30px;
 }
 
 .hero-content {
@@ -28,16 +28,16 @@
   font-size: 3.5rem;
   font-weight: 800;
   color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 20px;
+  line-height: 1.1;
+  margin-bottom: 16px;
   transition: color 0.3s ease;
 }
 
 .hero-subheadline {
   font-size: 1.125rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 30px;
+  line-height: 1.5;
+  margin-bottom: 24px;
   transition: color 0.3s ease;
 }
 
@@ -45,10 +45,10 @@
   display: inline-block;
   background-color: var(--accent-color);
   color: #ffffff;
-  padding: 15px 35px;
+  padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
@@ -58,8 +58,13 @@
 
 .hero-cta-button:hover {
   background-color: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+.hero-cta-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
 }
 
 .hero-image-container {
@@ -73,7 +78,11 @@
   max-width: 100%;
   height: auto;
   filter: var(--image-filter, none);
-  transition: filter 0.3s ease;
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
 }
 
 /* Dark mode image adjustment */
@@ -85,17 +94,20 @@ body.dark-mode .hero-image {
 @media screen and (max-width: 960px) {
   .hero-section {
     /* NEW: Reduce padding on smaller screens */
-    padding: 60px 20px;
+    padding: 30px 20px 50px 20px;
+    min-height: 70vh;
   }
 
   .hero-container {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
   }
 
   .hero-headline {
     /* UPDATED: Further reduce font size for small devices */
-    font-size: 2.2rem; 
+    font-size: 2.2rem;
+    margin-bottom: 12px;
   }
 
   .hero-subheadline {

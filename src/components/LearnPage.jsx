@@ -34,13 +34,13 @@ const modules = [
 const LearnPage = ({ setCurrentPage }) => {
   return (
     <div className="learn-page">
-      <div className="learn-header">
+      <div className="learn-header stagger-item">
         <h1>Start Your Learning Journey</h1>
         <p>Select a module to begin building your financial knowledge.</p>
       </div>
       <div className="modules-grid">
         {modules.map((module, index) => (
-          <div className="module-card" key={index}>
+          <div className="module-card stagger-item" key={index} style={{ animationDelay: `${0.1 * (index + 2)}s` }}>
             <div className="module-icon">{module.icon}</div>
             <h3 className="module-title">{module.title}</h3>
             <p className="module-description">{module.description}</p>
@@ -48,7 +48,7 @@ const LearnPage = ({ setCurrentPage }) => {
           </div>
         ))}
       </div>
-      <button className="back-button" onClick={() => setCurrentPage('home')}>
+      <button className="back-button stagger-item" onClick={() => setCurrentPage('home')} style={{ animationDelay: '0.8s' }}>
         &larr; Back to Home
       </button>
     </div>

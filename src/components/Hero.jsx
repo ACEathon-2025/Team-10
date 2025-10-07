@@ -5,7 +5,7 @@ const Hero = ({ toggleAuthPage }) => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-container">
-        <div className="hero-content">
+        <div className="hero-content stagger-item">
           <h1 className="hero-headline">
             From Student Debt to Financial Freedom
           </h1>
@@ -19,7 +19,7 @@ const Hero = ({ toggleAuthPage }) => {
             Start Your Journey
           </button>
         </div>
-        <div className="hero-image-container">
+        <div className="hero-image-container stagger-item" style={{ animationDelay: '0.2s' }}>
           <img 
             src="/assets/finance_illustration.svg" 
             alt="Financial Planning Illustration" 

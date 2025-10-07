@@ -14,7 +14,20 @@
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 20px;
-  transition: background-color 0.3s ease;
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    background-color: rgba(15, 23, 42, 0);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    background-color: rgba(15, 23, 42, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
 }
 
 body.dark-mode .auth-page-overlay {
@@ -31,13 +44,19 @@ body.dark-mode .auth-page-overlay {
   max-width: 960px; /* Wider container for two columns */
   min-height: 600px;
   overflow: hidden; /* Ensures children respect the border-radius */
-  animation: fadeIn 0.5s ease-in-out;
+  animation: slideInAuth 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes slideInAuth {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* --- Left Promo Panel --- */
@@ -94,11 +113,19 @@ body.dark-mode .auth-page-overlay {
   color: var(--text-muted);
   cursor: pointer;
   z-index: 10;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .close-button:hover {
   color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  transform: rotate(90deg) scale(1.1);
 }
 
 .auth-title {
