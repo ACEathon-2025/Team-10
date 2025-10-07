@@ -11,21 +11,28 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .auth-page-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .auth-container {
   display: flex; /* This is key for the two-column layout */
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-radius: 16px; /* Slightly more rounded corners */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-color);
   width: 100%;
   max-width: 960px; /* Wider container for two columns */
   min-height: 600px;
   overflow: hidden; /* Ensures children respect the border-radius */
   animation: fadeIn 0.5s ease-in-out;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -36,13 +43,14 @@
 /* --- Left Promo Panel --- */
 .auth-promo-panel {
   flex: 1; /* Takes up half the space */
-  background-color: #f0f9ff; /* A light, inviting blue */
+  background-color: var(--bg-secondary);
   padding: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .promo-image {
@@ -53,14 +61,16 @@
 .promo-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
 .promo-subtitle {
   font-size: 1rem;
-  color: #475569;
+  color: var(--text-secondary);
   margin-top: 15px;
+  transition: color 0.3s ease;
 }
 
 /* --- Right Form Panel --- */
@@ -70,7 +80,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
+  transition: background-color 0.3s ease;
 }
 
 .close-button {
@@ -80,29 +91,31 @@
   background: none;
   border: none;
   font-size: 24px;
-  color: #94a3b8;
+  color: var(--text-muted);
   cursor: pointer;
   z-index: 10;
   transition: color 0.3s ease;
 }
 
 .close-button:hover {
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .auth-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   margin-bottom: 8px;
   text-align: left; /* Align text to the left */
+  transition: color 0.3s ease;
 }
 
 .auth-subtitle {
   font-size: 1rem;
-  color: #475569;
+  color: var(--text-secondary);
   margin-bottom: 30px;
   text-align: left;
+  transition: color 0.3s ease;
 }
 
 .auth-form {
@@ -113,20 +126,22 @@
 
 .auth-form input {
   padding: 14px 18px; /* More padding */
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
 .auth-form input:focus {
   outline: none;
-  border-color: #38bdf8;
+  border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
 }
 
 .auth-button {
-  background-color: #38bdf8;
+  background-color: var(--accent-color);
   color: #ffffff;
   padding: 14px;
   border: none;
@@ -134,26 +149,28 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
   margin-top: 10px;
 }
 
 .auth-button:hover {
-  background-color: #0ea5e9;
+  background-color: var(--accent-hover);
   transform: translateY(-2px);
 }
 
 .auth-switch {
   margin-top: 25px;
   font-size: 0.9rem;
-  color: #475569;
+  color: var(--text-secondary);
   text-align: left;
+  transition: color 0.3s ease;
 }
 
 .auth-switch span {
-  color: #38bdf8;
+  color: var(--accent-color);
   font-weight: 600;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 
@@ -167,7 +184,7 @@
   .auth-container {
     flex-direction: column;
     max-width: 450px; /* Revert to a modal-like width */
-    min-height: auto;
+    min-height: 500px;
   }
 
   .auth-form-panel {

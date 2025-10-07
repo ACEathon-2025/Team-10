@@ -1,12 +1,13 @@
 /* Hero.css */
 
 .hero-section {
-  background-color: #f8fafc;
+  background-color: var(--bg-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 80px 20px;
   min-height: 90vh;
+  transition: background-color 0.3s ease;
 }
 
 .hero-container {
@@ -26,36 +27,39 @@
 .hero-headline {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--text-primary);
   line-height: 1.2;
   margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .hero-subheadline {
   font-size: 1.125rem;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .hero-cta-button {
   display: inline-block;
-  background-color: #38bdf8;
+  background-color: var(--accent-color);
   color: #ffffff;
   padding: 15px 35px;
   border-radius: 50px;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
   border: none;
   cursor: pointer;
 }
 
 .hero-cta-button:hover {
-  background-color: #0ea5e9;
+  background-color: var(--accent-hover);
   transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
 }
 
 .hero-image-container {
@@ -68,6 +72,13 @@
 .hero-image {
   max-width: 100%;
   height: auto;
+  filter: var(--image-filter, none);
+  transition: filter 0.3s ease;
+}
+
+/* Dark mode image adjustment */
+body.dark-mode .hero-image {
+  --image-filter: brightness(0.9) contrast(1.1);
 }
 
 /* UPDATED Media Query for better mobile view */

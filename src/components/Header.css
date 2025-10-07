@@ -1,7 +1,7 @@
 /* Header.css */
 
 .header {
-  background-color: #ffffff;
+  background-color: var(--header-bg);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -36,13 +36,13 @@
 }
 
 .nav-logo-button {
-  color: #0f172a;
+  color: var(--text-primary);
   font-size: 2rem;
   font-weight: bold;
 }
 
 .nav-link-button {
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 500;
   padding: 0 1rem;
@@ -50,7 +50,7 @@
 }
 
 .nav-link-button:hover {
-  color: #38bdf8;
+  color: var(--accent-color);
 }
 
 .nav-menu {
@@ -82,6 +82,41 @@
   background-color: #0ea5e9;
 }
 
+/* Theme toggle button */
+.nav-item-theme {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background-color: var(--theme-toggle-bg);
+  border: 1px solid var(--theme-toggle-border);
+  color: var(--theme-icon-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-toggle-hover-bg);
+}
+
+.theme-toggle-button:active {
+  transform: scale(0.97);
+}
+
+.theme-icon {
+  width: 22px;
+  height: 22px;
+}
+
 .menu-icon {
   display: none;
 }
@@ -99,7 +134,7 @@
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
-    background: #ffffff;
+    background: var(--header-bg);
   }
 
   .nav-menu.active {
@@ -141,7 +176,7 @@
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
-    color: #0f172a;
+    color: var(--text-primary);
   }
   
   /* NEW: Slightly reduce logo size on mobile */

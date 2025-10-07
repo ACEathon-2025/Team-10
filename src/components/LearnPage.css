@@ -1,9 +1,10 @@
 /* LearnPage.css */
 
 .learn-page {
-  background-color: #f8fafc;
+  background-color: var(--bg-secondary);
   min-height: 100vh;
   padding: 100px 20px 40px 20px; /* UPDATED: Reduced top padding */
+  transition: background-color 0.3s ease;
 }
 
 .learn-header {
@@ -15,13 +16,15 @@
 .learn-header h1 {
   font-size: 2.5rem; /* UPDATED: Adjusted font size for mobile */
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 .learn-header p {
   font-size: 1.1rem;
-  color: #475569;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .modules-grid {
@@ -33,54 +36,58 @@
 }
 
 .module-card {
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 15px var(--shadow-color);
   text-align: center;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
 }
 
 .module-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px var(--shadow-color);
 }
 
 .module-icon {
   font-size: 3rem;
-  color: #38bdf8;
+  color: var(--accent-color);
   margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .module-title {
   font-size: 1.4rem;
-  color: #1e293b;
+  color: var(--text-primary);
   margin-bottom: 15px;
+  transition: color 0.3s ease;
 }
 
 .module-description {
   font-size: 1rem;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 25px;
+  transition: color 0.3s ease;
 }
 
 .module-button {
-  background-color: #e0f2fe;
-  color: #0ea5e9;
-  border: none;
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
   padding: 12px 20px;
   border-radius: 50px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .module-button:hover {
-  background-color: #38bdf8;
+  background-color: var(--accent-color);
   color: #ffffff;
 }
 
@@ -89,10 +96,15 @@
   margin: 50px auto 0 auto;
   background: none;
   border: none;
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: var(--accent-color);
 }
 
 /* NEW: Media query for mobile typography */
