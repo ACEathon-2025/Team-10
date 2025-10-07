@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Header.css';
 
 // Accept setCurrentPage as a prop
-const Header = ({ toggleAuthPage, setCurrentPage }) => {
+const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const profileRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -45,8 +48,27 @@ const Header = ({ toggleAuthPage, setCurrentPage }) => {
     }
   };
 
+  // Scroll effect for compact header and subtle background
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close profile menu on outside click
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
+        setIsProfileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
   return (
-    <header className="header">
+    <header className={isScrolled ? 'header scrolled' : 'header'}>
       <nav className="navbar">
         {/* Updated logo to be a button that navigates home */}
         <button className="nav-logo-button" onClick={() => handleNavClick('home')}>
@@ -72,11 +94,30 @@ const Header = ({ toggleAuthPage, setCurrentPage }) => {
               Plan
             </button>
           </li>
-          <li className="nav-item-cta">
-            <button className="cta-button" onClick={toggleAuthPage}>
-              Get Started
-            </button>
-          </li>
+          {user ? (
+            <li className="nav-item" ref={profileRef}>
+              <button className="user-chip as-button" onClick={() => setIsProfileOpen(!isProfileOpen)} title={user.email}>
+                <span className="user-avatar">{(user.displayName || user.email || 'U').charAt(0).toUpperCase()}</span>
+                <span className="user-name">{user.displayName || user.email}</span>
+              </button>
+              {isProfileOpen && (
+                <div className="profile-menu">
+                  <div className="profile-meta">
+                    <div className="meta-name">{user.displayName || 'User'}</div>
+                    <div className="meta-email">{user.email}</div>
+                  </div>
+                  <button className="profile-item" onClick={() => { setIsProfileOpen(false); handleNavClick('learn'); }}>Learn</button>
+                  <button className="profile-item danger" onClick={() => { setIsProfileOpen(false); onLogout && onLogout(); }}>Log out</button>
+                </div>
+              )}
+            </li>
+          ) : (
+            <li className="nav-item-cta">
+              <button className="cta-button" onClick={toggleAuthPage}>
+                Get Started
+              </button>
+            </li>
+          )}
           <li className="nav-item nav-item-theme">
             <button className="theme-toggle-button" onClick={toggleTheme} aria-label="Toggle theme">
               {isDarkMode ? (

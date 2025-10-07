@@ -4,7 +4,7 @@ import './AuthPage.css'; // We will update this CSS file next
 import Login from './Login'; // Import the new Login component
 import Register from './Register'; // Import the new Register component
 
-const AuthPage = ({ toggleAuthPage }) => {
+const AuthPage = ({ toggleAuthPage, onAuthed }) => {
   const [isLoginView, setIsLoginView] = useState(true);
 
   // This function will be passed to both Login and Register components
@@ -34,9 +34,9 @@ const AuthPage = ({ toggleAuthPage }) => {
         {/* Right Side: The form area */}
         <div className="auth-form-panel">
           {isLoginView ? (
-            <Login toggleView={toggleView} />
+            <Login toggleView={toggleView} onAuthed={onAuthed} />
           ) : (
-            <Register toggleView={toggleView} />
+            <Register toggleView={toggleView} onAuthed={onAuthed} />
           )}
         </div>
 
