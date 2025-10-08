@@ -1,0 +1,468 @@
+/* Header.css */
+
+.header {
+  background-color: var(--header-bg);
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.nav-logo-button,
+.nav-link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Enhanced Logo Styling with Finance Theme */
+.nav-logo-button {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 900;
+  position: relative;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.logo-rupee {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  font-weight: 900;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Logo Animations */
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+}
+
+.nav-logo-button:hover .logo-rupee {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.1) translateY(-5px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  75% {
+    transform: scale(1.08) translateY(-3px);
+  }
+}
+
+.nav-logo-button:hover .logo-text {
+  color: var(--accent-color);
+  letter-spacing: 0px;
+  transform: translateX(2px);
+}
+
+.nav-logo-button::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+.nav-logo-button:hover::after {
+  width: 100%;
+}
+
+/* Pulsing effect for logo */
+.logo-animated {
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+  }
+}
+
+.nav-link-button {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link-button:hover {
+  color: var(--accent-color);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  height: 80px;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.profile-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.profile-trigger {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.profile-trigger:hover {
+  background: var(--theme-toggle-hover-bg);
+  border-color: var(--accent-color);
+}
+
+.avatar-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: var(--accent-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.avatar-circle-gradient {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0369a1 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.avatar-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.logout-button {
+  background-color: #ef4444;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.chevron-icon {
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+/* Profile Menu Wrapper with Animation */
+.profile-menu-wrapper {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern Profile Menu */
+.profile-menu {
+  min-width: 160px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 40px var(--shadow-color);
+  border-radius: 12px;
+  padding: 8px;
+  list-style: none;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Menu Items */
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.profile-menu-item:hover {
+  background: var(--bg-secondary);
+  transform: translateX(4px);
+}
+
+.profile-menu-item:active {
+  transform: translateX(4px) scale(0.98);
+}
+
+/* Menu Icons */
+.menu-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.profile-menu-item:hover .menu-icon {
+  color: var(--accent-color);
+}
+
+/* Logout Item - Special Styling */
+.profile-menu-item.logout {
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+.profile-menu-item.logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.profile-menu-item.logout .menu-icon {
+  color: #ef4444;
+}
+
+.profile-menu-item.logout:hover .menu-icon {
+  color: #dc2626;
+}
+
+.nav-item-cta {
+  margin-left: 0.5rem;
+}
+
+.nav-item-cta .cta-button {
+  background-color: #38bdf8;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-item-cta .cta-button:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Theme toggle button */
+.nav-item-theme {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background-color: var(--theme-toggle-bg);
+  border: 1px solid var(--theme-toggle-border);
+  color: var(--theme-icon-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-toggle-hover-bg);
+}
+
+.theme-toggle-button:active {
+  transform: scale(0.97);
+}
+
+.theme-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the items */
+    width: 100%;
+    height: calc(100vh - 80px); /* Full height minus header */
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background: var(--header-bg);
+  }
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 998;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* NEW: Give buttons more vertical space */
+  .nav-link-button {
+    width: 100%;
+    padding: 1.5rem 0;
+    justify-content: center;
+    font-size: 1.2rem; /* Make text slightly larger for easier tapping */
+  }
+
+  /* NEW: Center the CTA button properly */
+  .nav-item-cta {
+    width: 100%;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-item-cta .cta-button {
+    width: 80%;
+    max-width: 250px; /* Prevent it from being too wide */
+    padding: 12px 20px;
+  }
+  
+  .menu-icon {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+  
+  /* Responsive Logo Adjustments */
+  .nav-logo-button {
+    font-size: 1.5rem;
+  }
+  
+  .logo-rupee {
+    font-size: 1.65rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
+}
