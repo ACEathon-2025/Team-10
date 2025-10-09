@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import Button from './Button';
 import './Header.css';
 
 // Accept setCurrentPage as a prop
@@ -8,6 +9,24 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const profileMenuRef = useRef(null);
+
+  // Helper function to get user initials
+  const getUserInitials = (user) => {
+    if (!user) return 'U';
+    
+    const displayName = user.displayName || user.email || 'User';
+    
+    // Split name by spaces
+    const nameParts = displayName.trim().split(/\s+/);
+    
+    if (nameParts.length >= 2) {
+      // If multiple words, take first letter of first and second word
+      return (nameParts[0].charAt(0) + nameParts[1].charAt(0)).toUpperCase();
+    } else {
+      // If single word or email, take first two letters
+      return displayName.substring(0, 2).toUpperCase();
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -74,25 +93,55 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
             {/* Updated 'Learn' to be a button that navigates to the learn page */}
-            <button className="nav-link-button" onClick={() => handleNavClick('learn')}>
+            <Button
+              variant="ghost"
+              size="small"
+              onClick={() => handleNavClick('learn')}
+              className="nav-link-button"
+            >
               Learn
-            </button>
+            </Button>
           </li>
           <li className="nav-item">
-            <button className="nav-link-button" onClick={() => alert('Practice page coming soon!')}>
+            <Button
+              variant="ghost"
+              size="small"
+              onClick={() => handleNavClick('news')}
+              className="nav-link-button"
+            >
+              News
+            </Button>
+          </li>
+          <li className="nav-item">
+            <Button
+              variant="ghost"
+              size="small"
+              onClick={() => alert('Practice page coming soon!')}
+              className="nav-link-button"
+            >
               Practice
-            </button>
+            </Button>
           </li>
           <li className="nav-item">
-            <button className="nav-link-button" onClick={() => alert('Plan page coming soon!')}>
+            <Button
+              variant="ghost"
+              size="small"
+              onClick={() => alert('Plan page coming soon!')}
+              className="nav-link-button"
+            >
               Plan
-            </button>
+            </Button>
           </li>
           {!user && (
             <li className="nav-item-cta">
-              <button className="cta-button" onClick={toggleAuthPage}>
+              <Button
+                variant="primary"
+                size="small"
+                onClick={toggleAuthPage}
+                className="cta-button"
+              >
                 Get Started
-              </button>
+              </Button>
             </li>
           )}
           {user && (
@@ -104,11 +153,9 @@ const Header = ({ toggleAuthPage, setCurrentPage, user, onLogout }) => {
                 aria-haspopup="menu"
                 aria-expanded={isProfileMenuOpen}
               >
-                {user.photoURL ? (
-                  <img className="avatar-image" src={user.photoURL} alt={user.displayName || 'User'} />
-                ) : (
-                  <div className="avatar-circle-gradient">{(user.displayName || user.email || 'U').charAt(0).toUpperCase()}</div>
-                )}
+                <div className="avatar-circle-gradient">
+                  {getUserInitials(user)}
+                </div>
                 <span className="profile-name">{user.displayName || user.email}</span>
                 <svg className={`chevron-icon ${isProfileMenuOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                   <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

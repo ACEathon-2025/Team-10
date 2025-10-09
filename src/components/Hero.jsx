@@ -1,7 +1,8 @@
 import React from 'react';
+import Button from './Button';
 import './Hero.css';
 
-const Hero = ({ toggleAuthPage }) => {
+const Hero = ({ toggleAuthPage, user, onNavigateToLearn }) => {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-container">
@@ -15,9 +16,22 @@ const Hero = ({ toggleAuthPage }) => {
             RupeeRoute offers a simple, step-by-step guide to help you manage debt, 
             invest wisely, and build a secure financial future.
           </p>
-          <button className="hero-cta-button" onClick={toggleAuthPage}>
+          <Button
+            variant="primary"
+            size="large"
+            onClick={() => {
+              if (user) {
+                // If user is logged in, navigate to learn page
+                onNavigateToLearn('learn');
+              } else {
+                // If not logged in, show auth page
+                toggleAuthPage();
+              }
+            }}
+            className="hero-cta-button"
+          >
             Start Your Journey
-          </button>
+          </Button>
         </div>
         <div className="hero-image-container stagger-item" style={{ animationDelay: '0.2s' }}>
           <img 

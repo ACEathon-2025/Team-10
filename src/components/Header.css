@@ -194,8 +194,8 @@
 }
 
 .avatar-circle-gradient {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 9999px;
   background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0369a1 100%);
   color: #fff;
@@ -203,6 +203,27 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+  animation: avatarGlow 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes avatarGlow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+  }
+  50% {
+    box-shadow: 0 2px 12px rgba(56, 189, 248, 0.6);
+  }
+}
+
+.avatar-circle-gradient:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.5);
 }
 
 .avatar-image {
@@ -210,6 +231,14 @@
   height: 28px;
   border-radius: 9999px;
   object-fit: cover;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+  transition: all 0.3s ease;
+}
+
+.avatar-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.5);
 }
 
 .profile-name {
