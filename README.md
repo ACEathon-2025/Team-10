@@ -85,7 +85,34 @@ This web application was built using modern web technologies:
 
 **Note:** OpenAI provides free credits for new accounts. The news summarization feature uses minimal tokens.
 
-## 📁 Project Structure
+### Firebase Configuration
+1. Visit [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project or select existing one
+3. Go to Project Settings > General > Your apps
+4. Add a web app if you haven't already
+5. Copy the Firebase config values to your `.env` file:
+   ```env
+   REACT_APP_FIREBASE_API_KEY=your_api_key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   REACT_APP_FIREBASE_APP_ID=your_app_id
+   REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
+   ```
+
+## � Security Measures
+
+This project implements several security best practices:
+
+- **Environment Variables:** All sensitive API keys are stored in environment variables, not hardcoded
+- **Git Security:** `.env` files are excluded from version control via `.gitignore`
+- **CORS Protection:** API server restricts origins to trusted frontend domains only
+- **Secret Management:** Firebase and other service credentials use environment variables
+
+**⚠️ Security Note:** Never commit your `.env` file to version control. It contains sensitive API keys.
+
+## �📁 Project Structure
 
 ```
 Team-10/
