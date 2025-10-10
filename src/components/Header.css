@@ -1,4 +1,4 @@
-/* Header.css - Simplified */
+/* Header.css - Professional & Clean */
 
 .header {
   background-color: var(--header-bg);
@@ -24,19 +24,13 @@
   padding: 0 20px;
 }
 
-.nav-logo-button,
-.nav-link-button {
+.nav-logo-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-/* Logo Styling */
-.nav-logo-button {
   color: var(--text-primary);
   font-size: 1.75rem;
   font-weight: 900;
@@ -64,7 +58,7 @@
   letter-spacing: -0.5px;
 }
 
-/* Nav Menu */
+/* --- Nav Menu --- */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -79,30 +73,61 @@
   align-items: center;
 }
 
+/* NEW: Clean Hover Effect for Nav Links */
 .nav-link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
   color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 500;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
+  position: relative;
   transition: color 0.3s ease;
-  border-radius: 6px;
+}
+
+.nav-link-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
 .nav-link-button:hover {
-  color: var(--accent-color);
-  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
-/* Profile Display */
+.nav-link-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* --- Professional Profile Dropdown --- */
 .profile-item {
+  position: relative; /* Required for dropdown positioning */
+}
+
+.profile-trigger {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 0.5rem;
-  padding: 6px 10px;
+  padding: 6px 12px 6px 6px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-trigger:hover {
+  background-color: var(--card-bg);
+  border-color: var(--accent-color);
 }
 
 .avatar-circle-gradient {
@@ -125,17 +150,70 @@
   font-weight: 500;
 }
 
+.chevron-icon {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Styling */
+.profile-menu-wrapper {
+  position: absolute;
+  top: 120%; /* Position below the trigger */
+  right: 0;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeInMenu 0.2s ease-out;
+}
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-menu {
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+}
+
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+}
+
+.profile-menu-item:hover {
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+}
+
+.profile-menu-item .menu-icon {
+  font-size: 1.1rem;
+}
+
 /* CTA Button */
 .nav-item-cta .cta-button {
   background-color: #38bdf8;
   color: #ffffff;
   padding: 10px 22px;
   border-radius: 50px;
-  text-decoration: none;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -146,11 +224,10 @@
   box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
-/* Theme toggle button */
+/* --- Theme toggle button (No changes) --- */
 .nav-item-theme {
   margin-left: 0.5rem;
 }
-
 .theme-toggle-button {
   display: inline-flex;
   align-items: center;
@@ -164,26 +241,15 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
+.theme-toggle-button:hover { background-color: var(--theme-toggle-hover-bg); }
+.theme-icon { width: 22px; height: 22px; }
 
-.theme-toggle-button:hover {
-  background-color: var(--theme-toggle-hover-bg);
-}
+/* --- Mobile Menu Icon --- */
+.menu-icon { display: none; }
 
-.theme-toggle-button:active {
-  transform: scale(0.95);
-}
-
-.theme-icon {
-  width: 22px;
-  height: 22px;
-}
-
-.menu-icon {
-  display: none;
-}
-
-/* --- Mobile Responsiveness --- */
+/* --- Mobile Responsiveness (No major changes needed) --- */
 @media screen and (max-width: 960px) {
+  /* ... existing mobile styles ... */
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -196,43 +262,13 @@
     transition: left 0.5s ease;
     background: var(--header-bg);
   }
-
-  .nav-menu.active {
-    left: 0;
-    z-index: 998;
-  }
-
-  .nav-item {
-    width: 100%;
-    height: auto;
-    justify-content: center;
-  }
-  
-  .nav-link-button {
-    width: 100%;
-    padding: 1.5rem 0;
-    justify-content: center;
-    font-size: 1.2rem;
-  }
-
-  .profile-item {
-    padding: 0.5rem 0;
-    background: none;
-    border: none;
-  }
-
-  .nav-item-cta {
-    padding: 1.5rem 0;
-  }
-  
-  .menu-icon {
-    display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--text-primary);
-  }
-  
-  .nav-logo-button {
-    font-size: 1.5rem;
-  }
+  .nav-menu.active { left: 0; z-index: 998; }
+  .nav-item { width: 100%; height: auto; justify-content: center; }
+  .nav-link-button { width: 100%; padding: 1.5rem 0; justify-content: center; font-size: 1.2rem; }
+  .nav-link-button::after { display: none; } /* Hide underline on mobile menu */
+  .nav-item-cta { padding: 1.5rem 0; }
+  .profile-trigger { background: none; border: none; padding: 1.5rem 0; }
+  .profile-menu-wrapper { display: none; } /* Dropdown not needed on mobile view */
+  .menu-icon { display: block; font-size: 1.8rem; cursor: pointer; color: var(--text-primary); }
+  .nav-logo-button { font-size: 1.5rem; }
 }

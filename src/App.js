@@ -25,7 +25,6 @@ import StockBasics from './components/modules/StockBasics';
 import RetirementPlanning from './components/modules/RetirementPlanning';
 import EducationLoans from './components/modules/EducationLoans';
 
-
 function App() {
   const [showAuthPage, setShowAuthPage] = useState(false);
   const [showPlanPage, setShowPlanPage] = useState(false);
@@ -112,12 +111,13 @@ function App() {
       case 'education-loans':
         return <EducationLoans onBack={backToLearn} />;
 
-      // Default Page
+      // Default Page (Home)
       default:
         return <Hero
-          toggleAuthPage={toggleAuthPage}
           user={user}
           onNavigateToLearn={handleNavigation}
+          toggleAuthPage={toggleAuthPage}
+          togglePlanPage={togglePlanPage} 
         />;
     }
   };
