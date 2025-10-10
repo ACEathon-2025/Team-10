@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the new shared CSS file
+import './ModuleDetail.css';
+import Quiz from './Quiz'; // Import Quiz component
+
+const quizQuestions = [
+  {
+    question: "What is the primary purpose of a budget?",
+    options: ["To stop you from spending money", "To give your money a plan and control", "To track your past mistakes", "To get a loan"],
+    correctAnswer: "To give your money a plan and control"
+  },
+  {
+    question: "In the story, what was Priya's 'money leak'?",
+    options: ["Buying clothes", "Eating out for dinner", "Daily fancy coffees", "Subscribing to streaming services"],
+    correctAnswer: "Daily fancy coffees"
+  }
+];
 
 const WhatIsBudgeting = ({ onBack }) => {
   return (
@@ -47,20 +61,22 @@ const WhatIsBudgeting = ({ onBack }) => {
             </p>
           </div>
         </section>
-
+        
         <section className="module-section">
-          <h2>Why It Matters</h2>
+          <h2>Common Budgeting Pitfalls</h2>
           <p>
-            Just like Priya, many of us have "leaks" in our finances that we don't notice. A budget helps you plug those leaks and direct your money towards what truly matters to you.
+            Starting a budget is easy, but sticking to it can be tricky. Here are common mistakes to avoid:
           </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>A budget is a plan that gives you control over your money.</li>
-              <li>It helps you identify and reduce unnecessary spending.</li>
-              <li>Budgeting is the first and most crucial step toward achieving any financial goal.</li>
-            </ul>
-          </div>
+          <ul>
+            <li><strong>Being Too Restrictive:</strong> A budget that leaves no room for fun is a budget you won't stick to. Be realistic and allocate some money for your wants.</li>
+            <li><strong>Not Tracking Your Spending:</strong> A budget is useless if you don't know where your money is actually going. Use an app or a simple notebook to track your expenses.</li>
+            <li><strong>Giving Up After One Mistake:</strong> You will overspend some months. That's okay! The key is to acknowledge it, adjust, and get back on track the next month.</li>
+          </ul>
+        </section>
+
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

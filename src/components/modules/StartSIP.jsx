@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "What does SIP stand for?",
+      options: ["Systematic Income Plan", "Simple Investment Plan", "Systematic Investment Plan", "Secure Investment Portfolio"],
+      correctAnswer: "Systematic Investment Plan"
+    },
+    {
+      question: "What is the main advantage of an SIP, as shown in the story of the two gardeners?",
+      options: ["It guarantees high returns", "It helps you time the market perfectly", "It averages out your purchase cost over time (Rupee Cost Averaging)", "It is a short-term investment"],
+      correctAnswer: "It averages out your purchase cost over time (Rupee Cost Averaging)"
+    }
+];
 
 const StartSIP = ({ onBack }) => {
   return (
@@ -46,18 +60,15 @@ const StartSIP = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>Why It's So Powerful</h2>
-          <p>
-            SIPs are popular because they build discipline and harness the power of compounding. By investing regularly, you buy more units when the market is low and fewer when it's high, which can lead to better returns over the long term.
-          </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>An SIP is an automated way to invest a fixed amount regularly.</li>
-              <li>It reduces risk through Rupee Cost Averaging.</li>
-              <li>It helps build long-term wealth through consistency and compounding.</li>
-            </ul>
-          </div>
+            <h2>The Power of Compounding</h2>
+            <p>
+                The real magic of SIPs happens over the long term. Not only do you benefit from averaging, but your investments start to generate their own earnings. Then, those earnings start to generate *their own* earnings. This snowball effect is called compounding. A small amount invested regularly can grow into a very large sum over 15, 20, or 30 years, which is why it's so important to start as early as you can.
+            </p>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "What is the main idea of 'Paying Yourself First'?",
+      options: ["Paying all your bills before saving", "Treating your savings and retirement contributions as a non-negotiable expense", "Spending your money on yourself first", "Buying things that make you happy"],
+      correctAnswer: "Treating your savings and retirement contributions as a non-negotiable expense"
+    },
+    {
+      question: "Why is it important to start retirement planning early?",
+      options: ["Because you get tax benefits only when you are young", "To give your money more time to grow through the power of compounding", "Because it is illegal to start late", "To impress your friends"],
+      correctAnswer: "To give your money more time to grow through the power of compounding"
+    }
+];
 
 const RetirementPlanning = ({ onBack }) => {
   return (
@@ -46,18 +60,15 @@ const RetirementPlanning = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>Popular Options in India</h2>
-          <p>
-            Tools like the PPF and NPS are powerful because they are long-term, government-backed schemes that offer tax benefits and the magic of compounding. Setting up automatic deductions into these accounts is the easiest way to ensure you are consistently preparing for your future.
-          </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>Start planning for retirement as early as possible.</li>
-              <li>"Pay Yourself First" by automating your savings and investments.</li>
-              <li>Utilize long-term tools like PPF and NPS for disciplined growth.</li>
-            </ul>
-          </div>
+            <h2>The Enemy: Inflation</h2>
+            <p>
+                One of the biggest challenges in retirement planning is **inflation**. Inflation is the rate at which the general level of prices for goods and services is rising, and subsequently, purchasing power is falling. The ₹100 you have today will buy less stuff in 20 years. This is why simply saving money in a low-interest account is not enough for retirement. You must invest in assets that can grow faster than inflation, such as equity mutual funds.
+            </p>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

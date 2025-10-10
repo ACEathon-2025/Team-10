@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "An education loan is considered 'good debt' because...",
+      options: ["It has no interest", "It never has to be paid back", "It is an investment in your future earning potential", "It is easy to get"],
+      correctAnswer: "It is an investment in your future earning potential"
+    },
+    {
+      question: "What is a 'moratorium period'?",
+      options: ["The period when you apply for the loan", "The period when the bank decides your interest rate", "A grace period after your course ends before you must start making payments", "The time it takes to pay back the loan"],
+      correctAnswer: "A grace period after your course ends before you must start making payments"
+    }
+];
 
 const EducationLoans = ({ onBack }) => {
   return (
@@ -48,18 +62,20 @@ const EducationLoans = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>Is It the Right Choice?</h2>
-          <p>
-            An education loan can be a fantastic tool if used wisely. It allows you to access quality education you might not otherwise afford. However, it's crucial to understand the terms and have a clear plan for repayment. Always research the potential salary for your chosen field to ensure the loan is a manageable investment.
-          </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
+            <h2>Things to Consider Before Applying</h2>
+            <p>
+                An education loan is a serious commitment. Before you sign the papers, make sure you have considered the following:
+            </p>
             <ul>
-              <li>An education loan is an investment in your future earning capacity.</li>
-              <li>Understand all the terms, especially the interest rate and moratorium period.</li>
-              <li>Always borrow responsibly and have a clear repayment strategy.</li>
+                <li><strong>Compare Interest Rates:</strong> Different banks offer different rates. Shop around to find the best deal. Public sector banks often have slightly lower rates.</li>
+                <li><strong>Read the Fine Print:</strong> Understand the terms of the moratorium period. Does interest accumulate? Are there any processing fees or prepayment penalties?</li>
+                <li><strong>Assess Future Income:</strong> Realistically evaluate the average starting salary for the field you are entering. Can you comfortably afford the EMI on that salary?</li>
             </ul>
-          </div>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

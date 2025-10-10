@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "What is the primary purpose of an emergency fund?",
+      options: ["To invest in the stock market", "To pay for a planned vacation", "To cover unexpected, urgent expenses", "To buy a new car"],
+      correctAnswer: "To cover unexpected, urgent expenses"
+    },
+    {
+      question: "How much should you ideally save in an emergency fund?",
+      options: ["1 month of income", "1 month of expenses", "3-6 months of essential living expenses", "Enough to buy a new phone"],
+      correctAnswer: "3-6 months of essential living expenses"
+    }
+];
 
 const EmergencyFunds = ({ onBack }) => {
   return (
@@ -46,18 +60,15 @@ const EmergencyFunds = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>How Much Should You Save?</h2>
+          <h2>Where to Keep Your Fund</h2>
           <p>
-            A good rule of thumb is to save **3 to 6 months' worth of essential living expenses**. This includes things like rent, utilities, food, and transportation. Keep this money in a high-yield savings account where it's easily accessible but separate from your normal bank account.
+            Your emergency fund needs to be **liquid**, meaning you can access it quickly and easily. However, it shouldn't be *too* easy to access, or you might be tempted to spend it on non-emergencies. The best place is a **High-Yield Savings Account** that is separate from your primary checking account. This way, the money is safe, earning a little interest, and requires a conscious effort to transfer and use.
           </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>An emergency fund is for true, unexpected emergencies only.</li>
-              <li>Aim to save 3-6 months of essential living expenses.</li>
-              <li>It provides peace of mind and prevents you from going into debt during a crisis.</li>
-            </ul>
-          </div>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

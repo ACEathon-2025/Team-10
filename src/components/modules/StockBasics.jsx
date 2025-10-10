@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "What does buying a stock or share represent?",
+      options: ["Loaning money to a company", "A tiny piece of ownership in a company", "A guaranteed profit", "A job at the company"],
+      correctAnswer: "A tiny piece of ownership in a company"
+    },
+    {
+      question: "According to the story, when does the value of your stock increase?",
+      options: ["When you sell it", "Every month, automatically", "When the company you own a piece of becomes more successful and valuable", "Only when the stock market is going up"],
+      correctAnswer: "When the company you own a piece of becomes more successful and valuable"
+    }
+];
 
 const StockBasics = ({ onBack }) => {
   return (
@@ -46,18 +60,15 @@ const StockBasics = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>How are Stocks Traded?</h2>
-          <p>
-            The stock market (like the National Stock Exchange or NSE in India) is simply the place where buyers and sellers meet to trade these pieces of ownership. Prices go up and down based on the company's performance and what investors think it will be worth in the future.
-          </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>A stock represents ownership in a company.</li>
-              <li>You make money when the value of the company increases.</li>
-              <li>Investing in stocks is investing in the growth of businesses.</li>
-            </ul>
-          </div>
+            <h2>Risk vs. Reward</h2>
+            <p>
+                While owning stocks offers the potential for high growth, it also comes with risk. If the bakery in our story had failed, the value of your shares could have dropped to zero. This is why it's important not to put all your money into one single stock. **Diversification**, or spreading your money across many different companies and industries (often through mutual funds), is a key strategy to manage this risk.
+            </p>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>

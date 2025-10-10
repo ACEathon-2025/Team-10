@@ -1,6 +1,20 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css'; // Use the same shared CSS
+import './ModuleDetail.css';
+import Quiz from './Quiz';
+
+const quizQuestions = [
+    {
+      question: "What is the main benefit of a savings account?",
+      options: ["High-risk, high-return investments", "It's a safe place to keep money and earn interest", "It allows you to spend money easily", "It's used for buying stocks"],
+      correctAnswer: "It's a safe place to keep money and earn interest"
+    },
+    {
+      question: "What is compound interest?",
+      options: ["Interest that is simple to calculate", "Interest earned only on your initial deposit", "Interest earned on both your initial deposit and the interest it has already earned", "A type of loan"],
+      correctAnswer: "Interest earned on both your initial deposit and the interest it has already earned"
+    }
+];
 
 const SavingsAccounts = ({ onBack }) => {
   return (
@@ -46,18 +60,15 @@ const SavingsAccounts = ({ onBack }) => {
         </section>
 
         <section className="module-section">
-          <h2>Why You Need One</h2>
+          <h2>Types of Savings Accounts</h2>
           <p>
-            A savings account is the perfect place for your short-term goals, like saving for a new phone, a vacation, or building your emergency fund. It keeps your money safe and separate from your daily spending money.
+            While a basic savings account is great, banks in India also offer variations. A **High-Yield Savings Account** offers a better interest rate than a standard one, making it ideal for your emergency fund. Some banks also offer accounts for specific goals, like for children's education or for senior citizens.
           </p>
-          <div className="key-takeaways">
-            <h2>Key Takeaways</h2>
-            <ul>
-              <li>A savings account is a safe place to store money for your goals.</li>
-              <li>It pays you interest, which helps your money grow over time.</li>
-              <li>It's the ideal starting point for anyone beginning their financial journey.</li>
-            </ul>
-          </div>
+        </section>
+        
+        <section className="module-section quiz-section">
+          <h2>Test Your Knowledge</h2>
+          <Quiz questions={quizQuestions} />
         </section>
       </div>
     </div>
