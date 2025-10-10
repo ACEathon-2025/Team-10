@@ -278,7 +278,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Team 10/ - ACEATHON 2025**
 
-Pratham M Prabhu & Dhanus G Shetty
+Pratham M Prabhu & Dhanush G Shetty
 
 ### Special Thanks
 - ACEATHON 2025 organizers
