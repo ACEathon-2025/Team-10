@@ -1,0 +1,200 @@
+/* PlanDetail.css - For attractive, detailed plan pages */
+
+.plan-detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* --- Back Button (UPDATED FOR A MORE ATTRACTIVE LOOK) --- */
+.back-button-wrapper {
+  margin-bottom: 25px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 9999px; /* This creates the pill shape */
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  border-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+  transform: translateY(-2px) scale(1.02); /* Creates a "pop" effect */
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.back-button-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.back-button:hover .back-button-icon {
+  transform: translateX(-3px); /* Icon moves slightly on hover */
+}
+
+
+/* --- Main Header --- */
+.plan-header-accent {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  padding: 40px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+}
+
+.plan-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.plan-subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* --- Main Content Styling --- */
+.plan-content {
+  padding: 10px;
+}
+
+.plan-section {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.plan-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+}
+
+.plan-section p, .plan-section li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* --- Image Styling --- */
+.plan-image {
+  width: 100%;
+  max-width: 450px;
+  display: block;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Special Layouts: Cards and Grids --- */
+.breakdown-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background-color: var(--bg-secondary);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info-card-needs { border-color: #22c55e; } /* green */
+.info-card-wants { border-color: #f97316; } /* orange */
+.info-card-savings { border-color: #3b82f6; } /* blue */
+
+/* --- Step-by-Step Guide --- */
+.steps-container {
+  counter-reset: steps-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.step-item::before {
+  counter-increment: steps-counter;
+  content: counter(steps-counter);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: var(--accent-color);
+  color: #fff;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Pros and Cons Grid --- */
+.pros-cons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.pros-card, .cons-card {
+  padding: 25px;
+  border-radius: 12px;
+  background-color: var(--bg-secondary);
+}
+
+.pros-card { border-bottom: 4px solid #22c55e; }
+.cons-card { border-bottom: 4px solid #ef4444; }
+
+.pros-cons-grid h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.pros-cons-grid ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+  .plan-title { font-size: 2rem; }
+  .pros-cons-grid { grid-template-columns: 1fr; }
+  .plan-header-accent, .plan-section { padding: 25px; }
+}

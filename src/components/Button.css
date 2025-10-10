@@ -1,0 +1,212 @@
+/* Button.css - Smooth Transitions & Loading Effects */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  color: white;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+}
+
+.btn-secondary {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success-color), #27ae60);
+  color: white;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-success:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--error-color), #e74c3c);
+  color: white;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  border-radius: 6px;
+}
+
+.btn-medium {
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  border-radius: 10px;
+}
+
+/* Click Animation */
+.btn-clicked {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Loading State */
+.btn-loading {
+  pointer-events: none;
+}
+
+.btn-loading .btn-content {
+  opacity: 0.7;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: btn-spin 1s linear infinite;
+}
+
+@keyframes btn-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ripple Effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Content positioning */
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Special button types */
+.btn-icon {
+  padding: 12px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .btn-large {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Dark mode adjustments */
+body.dark-mode .btn:focus {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}

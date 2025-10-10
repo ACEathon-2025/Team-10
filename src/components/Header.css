@@ -1,0 +1,238 @@
+/* Header.css - Simplified */
+
+.header {
+  background-color: var(--header-bg);
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.nav-logo-button,
+.nav-link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo Styling */
+.nav-logo-button {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 900;
+  gap: 4px;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-button:hover {
+  transform: scale(1.05);
+}
+
+.logo-rupee {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  font-weight: 900;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-text {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-button {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+  border-radius: 6px;
+}
+
+.nav-link-button:hover {
+  color: var(--accent-color);
+  background-color: var(--bg-secondary);
+}
+
+/* Profile Display */
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0.5rem;
+  padding: 6px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+}
+
+.avatar-circle-gradient {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0369a1 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* CTA Button */
+.nav-item-cta .cta-button {
+  background-color: #38bdf8;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-item-cta .cta-button:hover {
+  background-color: #0ea5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Theme toggle button */
+.nav-item-theme {
+  margin-left: 0.5rem;
+}
+
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background-color: var(--theme-toggle-bg);
+  border: 1px solid var(--theme-toggle-border);
+  color: var(--theme-icon-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-toggle-hover-bg);
+}
+
+.theme-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.theme-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* --- Mobile Responsiveness --- */
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    transition: left 0.5s ease;
+    background: var(--header-bg);
+  }
+
+  .nav-menu.active {
+    left: 0;
+    z-index: 998;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+  
+  .nav-link-button {
+    width: 100%;
+    padding: 1.5rem 0;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .profile-item {
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+  }
+
+  .nav-item-cta {
+    padding: 1.5rem 0;
+  }
+  
+  .menu-icon {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+  
+  .nav-logo-button {
+    font-size: 1.5rem;
+  }
+}

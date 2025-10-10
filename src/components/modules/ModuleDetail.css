@@ -1,0 +1,157 @@
+/* ModuleDetail.css - For engaging, story-driven learn pages */
+
+.module-container {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 20px;
+  animation: fadeInModule 0.5s ease-in-out;
+}
+
+@keyframes fadeInModule {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Back Button --- */
+.back-button-wrapper {
+  margin-bottom: 25px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  border-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.back-button-icon {
+  font-size: 1.1rem;
+}
+
+/* --- Page Header --- */
+.module-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.module-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.module-intro {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 10px auto 0;
+}
+
+/* --- Main Content Section --- */
+.module-section {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.module-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.module-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* --- Story Block --- */
+.story-block {
+  background-color: var(--bg-secondary);
+  border-left: 5px solid var(--accent-color);
+  padding: 25px;
+  margin: 30px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.story-block p {
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.story-block strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* --- Image Styling --- */
+.module-image {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Key Takeaways --- */
+.key-takeaways {
+  border-top: 2px dashed var(--border-color);
+  padding-top: 25px;
+  margin-top: 30px;
+}
+
+.key-takeaways ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.key-takeaways li {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  padding-left: 15px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.key-takeaways li::before {
+  content: '✔';
+  color: #22c55e; /* green checkmark */
+  position: absolute;
+  left: -10px;
+}

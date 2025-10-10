@@ -1,0 +1,102 @@
+/* LearnPage.css */
+
+.learn-page-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  animation: fadeInLearnPage 0.5s ease-in-out;
+}
+
+@keyframes fadeInLearnPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.learn-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.learn-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.learn-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.learn-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.learn-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1; /* Ensures cards in a row have the same height */
+  margin-bottom: 25px;
+}
+
+.card-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+.card-button:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
