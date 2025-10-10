@@ -26,7 +26,6 @@ import RetirementPlanning from './components/modules/RetirementPlanning';
 import EducationLoans from './components/modules/EducationLoans';
 
 function App() {
-  const [showAuthPage, setShowAuthPage] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,15 +43,6 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
-
-  // Scroll to top when showing auth page
-  useEffect(() => {
-    if (showAuthPage) {
-      window.scrollTo(0, 0);
-    }
-  }, [showAuthPage]);
-
-  const toggleAuthPage = () => setShowAuthPage(!showAuthPage);
 
   const handleLogout = async () => {
     try {
@@ -127,7 +117,6 @@ function App() {
         return <Hero
           user={user}
           onNavigateToLearn={handleNavigation}
-          toggleAuthPage={toggleAuthPage}
           setCurrentPage={handleNavigation}
         />;
     }
@@ -140,12 +129,11 @@ function App() {
           <div className="loading-spinner"></div>
           <p>Loading...</p>
         </div>
-      ) : showAuthPage ? (
-        <AuthPage toggleAuthPage={toggleAuthPage} />
+      ) : !user ? (
+        <AuthPage />
       ) : (
         <>
           <Header
-            toggleAuthPage={toggleAuthPage}
             setCurrentPage={handleNavigation}
             user={user}
             onLogout={handleLogout}

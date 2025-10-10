@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 
-const Hero = ({ user, onNavigateToLearn, toggleAuthPage, setCurrentPage }) => {
+const Hero = ({ user, onNavigateToLearn, setCurrentPage }) => {
   return (
     <>
       {/* Main Hero Section */}
@@ -21,9 +21,9 @@ const Hero = ({ user, onNavigateToLearn, toggleAuthPage, setCurrentPage }) => {
             <div className="hero-buttons">
               <button
                 className="hero-primary-button"
-                onClick={() => user ? onNavigateToLearn('learn') : toggleAuthPage()}
+                onClick={() => onNavigateToLearn('learn')}
               >
-                {user ? 'Start Your Journey' : 'Get Started for Free'}
+                Start Your Journey
               </button>
             </div>
           </div>

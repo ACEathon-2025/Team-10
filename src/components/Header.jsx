@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { FaBars, FaTimes, FaSignOutAlt } from 'react-icons/fa';
 import './Header.css';
 
-const Header = ({ toggleAuthPage, togglePlanPage, setCurrentPage, user, onLogout }) => {
+const Header = ({ setCurrentPage, user, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -78,33 +78,27 @@ const Header = ({ toggleAuthPage, togglePlanPage, setCurrentPage, user, onLogout
           <li><button onClick={() => handleNavClick('news')} className="nav-link-button">News</button></li>
           <li><button onClick={() => handleNavClick('plan')} className="nav-link-button">Plan</button></li>
 
-          {/* Conditional Auth Section */}
-          {!user ? (
-            <li className="nav-item-cta">
-              <button onClick={toggleAuthPage} className="cta-button">Get Started</button>
-            </li>
-          ) : (
-            <li className="nav-item profile-item" ref={profileMenuRef}>
-              <button className="profile-trigger" onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}>
-                <div className="avatar-circle-gradient">{getUserInitials(user)}</div>
-                <span className="profile-name">{user.displayName || user.email.split('@')[0]}</span>
-                <svg className={`chevron-icon ${isProfileMenuOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+          {/* User Profile Section */}
+          <li className="nav-item profile-item" ref={profileMenuRef}>
+            <button className="profile-trigger" onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}>
+              <div className="avatar-circle-gradient">{getUserInitials(user)}</div>
+              <span className="profile-name">{user.displayName || user.email.split('@')[0]}</span>
+              <svg className={`chevron-icon ${isProfileMenuOpen ? 'open' : ''}`} viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
               
-              {isProfileMenuOpen && (
-                <div className="profile-menu-wrapper">
-                  <ul className="profile-menu">
-                    <li className="profile-menu-item" onClick={() => { onLogout(); setIsProfileMenuOpen(false); }}>
-                      <FaSignOutAlt className="menu-icon" />
-                      <span>Logout</span>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </li>
-          )}
+            {isProfileMenuOpen && (
+              <div className="profile-menu-wrapper">
+                <ul className="profile-menu">
+                  <li className="profile-menu-item" onClick={() => { onLogout(); setIsProfileMenuOpen(false); }}>
+                    <FaSignOutAlt className="menu-icon" />
+                    <span>Logout</span>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </li>
 
           {/* Theme Toggle */}
           <li className="nav-item nav-item-theme">

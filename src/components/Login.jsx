@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../firebase/config';
 import { FaGoogle } from 'react-icons/fa';
 
-const Login = ({ toggleView, onSuccess }) => {
+const Login = ({ toggleView }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,7 +18,6 @@ const Login = ({ toggleView, onSuccess }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log('User logged in:', user.email);
-      if (onSuccess) onSuccess();
       // Redirect to dashboard or home page
       // window.location.href = '/dashboard';
     } catch (error) {
@@ -37,7 +36,6 @@ const Login = ({ toggleView, onSuccess }) => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       console.log('User signed in with Google:', user.displayName, user.email);
-      if (onSuccess) onSuccess();
       // Redirect to dashboard or home page
       // window.location.href = '/dashboard';
     } catch (error) {
