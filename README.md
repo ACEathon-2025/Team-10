@@ -276,11 +276,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👥 Team
 
-**Team 10 - ACEATHON 2025**
-- **Project Lead**: [Your Name]
-- **Frontend Developer**: [Team Member]
-- **Backend Developer**: [Team Member]
-- **UI/UX Designer**: [Team Member]
+**Team 10/ - ACEATHON 2025**
+Pratham M Prabhu & Dhanus G Shetty
 
 ### Special Thanks
 - ACEATHON 2025 organizers
