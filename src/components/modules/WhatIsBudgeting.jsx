@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz'; // Import Quiz component
-
-const quizQuestions = [
-  {
-    question: "What is the primary purpose of a budget?",
-    options: ["To stop you from spending money", "To give your money a plan and control", "To track your past mistakes", "To get a loan"],
-    correctAnswer: "To give your money a plan and control"
-  },
-  {
-    question: "In the story, what was Priya's 'money leak'?",
-    options: ["Buying clothes", "Eating out for dinner", "Daily fancy coffees", "Subscribing to streaming services"],
-    correctAnswer: "Daily fancy coffees"
-  }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const WhatIsBudgeting = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>What is Budgeting?</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">What is Budgeting?</h1>
-        <p className="module-intro">
-          Think of it as giving your money a map, so it knows exactly where to go.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Think of it as giving your money a map, so it knows exactly where to go.
+          </p>
+        </section>
         <section className="module-section">
           <h2>Giving Your Money a Plan</h2>
           <p>
@@ -76,7 +61,7 @@ const WhatIsBudgeting = ({ onBack }) => {
 
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="what-is-budgeting" />
         </section>
       </div>
     </div>

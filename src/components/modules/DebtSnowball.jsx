@@ -9,8 +9,7 @@ const DebtSnowball = ({ onBack }) => {
       <div className="back-button-wrapper">
         {/* 2. Update the onClick handler and button text */}
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Plans</span>
+          <FaArrowLeft />
         </button>
       </div>
 

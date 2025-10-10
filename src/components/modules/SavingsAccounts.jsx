@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "What is the main benefit of a savings account?",
-      options: ["High-risk, high-return investments", "It's a safe place to keep money and earn interest", "It allows you to spend money easily", "It's used for buying stocks"],
-      correctAnswer: "It's a safe place to keep money and earn interest"
-    },
-    {
-      question: "What is compound interest?",
-      options: ["Interest that is simple to calculate", "Interest earned only on your initial deposit", "Interest earned on both your initial deposit and the interest it has already earned", "A type of loan"],
-      correctAnswer: "Interest earned on both your initial deposit and the interest it has already earned"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const SavingsAccounts = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Intro to Savings Accounts</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Intro to Savings Accounts</h1>
-        <p className="module-intro">
-          Your money's first safe home, where it can rest and even grow a little.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Your money's first safe home, where it can rest and even grow a little.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is a Savings Account?</h2>
           <p>
@@ -68,7 +53,7 @@ const SavingsAccounts = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="savings-accounts" />
         </section>
       </div>
     </div>

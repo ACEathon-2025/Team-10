@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 
-const Hero = ({ user, onNavigateToLearn, toggleAuthPage, togglePlanPage }) => {
+const Hero = ({ user, onNavigateToLearn, toggleAuthPage, setCurrentPage }) => {
   return (
     <>
       {/* Main Hero Section */}
@@ -52,7 +52,7 @@ const Hero = ({ user, onNavigateToLearn, toggleAuthPage, togglePlanPage }) => {
               <p>Explore our curated modules, from basic budgeting to advanced investment strategies, all designed to be simple and engaging.</p>
             </div>
           </div>
-          <div className="feature-card" onClick={togglePlanPage}>
+          <div className="feature-card" onClick={() => setCurrentPage('plan')}>
             <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Financial planning on a desk" className="feature-image" />
             <div className="feature-content">
               <h3>Create a Financial Plan</h3>

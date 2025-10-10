@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "What is the primary purpose of an emergency fund?",
-      options: ["To invest in the stock market", "To pay for a planned vacation", "To cover unexpected, urgent expenses", "To buy a new car"],
-      correctAnswer: "To cover unexpected, urgent expenses"
-    },
-    {
-      question: "How much should you ideally save in an emergency fund?",
-      options: ["1 month of income", "1 month of expenses", "3-6 months of essential living expenses", "Enough to buy a new phone"],
-      correctAnswer: "3-6 months of essential living expenses"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const EmergencyFunds = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Emergency Funds 101</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Emergency Funds 101</h1>
-        <p className="module-intro">
-          Your personal financial superhero that protects you when life throws a curveball.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Your personal financial superhero that protects you when life throws a curveball.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is an Emergency Fund?</h2>
           <p>
@@ -68,7 +53,7 @@ const EmergencyFunds = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="emergency-funds" />
         </section>
       </div>
     </div>

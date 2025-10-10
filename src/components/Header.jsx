@@ -76,7 +76,7 @@ const Header = ({ toggleAuthPage, togglePlanPage, setCurrentPage, user, onLogout
           {/* Standard Nav Links */}
           <li><button onClick={() => handleNavClick('learn')} className="nav-link-button">Learn</button></li>
           <li><button onClick={() => handleNavClick('news')} className="nav-link-button">News</button></li>
-          <li><button onClick={togglePlanPage} className="nav-link-button">Plan</button></li>
+          <li><button onClick={() => handleNavClick('plan')} className="nav-link-button">Plan</button></li>
 
           {/* Conditional Auth Section */}
           {!user ? (

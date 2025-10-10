@@ -1,10 +1,13 @@
 import axios from 'axios';
-import OpenAI from 'openai';
 
-// Initialize OpenAI
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Initialize OpenAI only if API key is available
+let openai = null;
+if (process.env.OPENAI_API_KEY) {
+  const OpenAI = (await import('openai')).default;
+  openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+}
 
 // NewsAPI configuration
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
@@ -30,8 +33,13 @@ async function fetchFinancialNews() {
   }
 }
 
-// Function to summarize news article using OpenAI
+// Function to summarize news article using OpenAI (optional)
 async function summarizeNewsArticle(article) {
+  // If OpenAI is not available, use description as summary
+  if (!openai) {
+    return article.description || article.title || 'No summary available';
+  }
+
   try {
     const prompt = `
 Summarize the following financial news article in 2-3 sentences, focusing on key financial implications and market impact:
@@ -58,15 +66,20 @@ Summary:`;
       temperature: 0.3,
     });
 
-    return completion.choices[0]?.message?.content?.trim() || 'Summary not available';
+    return completion.choices[0]?.message?.content?.trim() || article.description || 'Summary not available';
   } catch (error) {
     console.error('Error summarizing article:', error);
-    return 'Summary not available due to processing error';
+    return article.description || article.title || 'Summary not available due to processing error';
   }
 }
 
-// Function to analyze sentiment
+// Function to analyze sentiment (optional OpenAI)
 async function analyzeSentiment(text) {
+  // If OpenAI is not available, return neutral sentiment
+  if (!openai) {
+    return 'neutral';
+  }
+
   try {
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',

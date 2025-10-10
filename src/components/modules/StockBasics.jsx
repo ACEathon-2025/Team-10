@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "What does buying a stock or share represent?",
-      options: ["Loaning money to a company", "A tiny piece of ownership in a company", "A guaranteed profit", "A job at the company"],
-      correctAnswer: "A tiny piece of ownership in a company"
-    },
-    {
-      question: "According to the story, when does the value of your stock increase?",
-      options: ["When you sell it", "Every month, automatically", "When the company you own a piece of becomes more successful and valuable", "Only when the stock market is going up"],
-      correctAnswer: "When the company you own a piece of becomes more successful and valuable"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const StockBasics = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Stock Market Basics</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Stock Market Basics</h1>
-        <p className="module-intro">
-          Understanding how you can own a tiny piece of your favorite companies.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Understanding how you can own a tiny piece of your favorite companies.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is a Stock?</h2>
           <p>
@@ -68,7 +53,7 @@ const StockBasics = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="stock-basics" />
         </section>
       </div>
     </div>

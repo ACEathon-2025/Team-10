@@ -53,21 +53,21 @@ This web application was built using modern web technologies:
 
    Edit the `.env` file and add your API keys:
    ```env
-   # Get your free NewsAPI key from: https://newsapi.org/
-   NEWS_API_KEY=your_actual_newsapi_key_here
+   # NewsAPI key (already configured)
+   NEWS_API_KEY=ea02476d8cdc465f8766d06611fadfd5
 
-   # Get your OpenAI API key from: https://platform.openai.com/account/api-keys
-   OPENAI_API_KEY=your_actual_openai_api_key_here
+   # OpenAI API key (optional - app works without it)
+   # OPENAI_API_KEY=your_actual_openai_api_key_here
    ```
 
    **⚠️ Security Note:** Never commit your `.env` file to version control. It contains sensitive API keys.
 
-4. **Start the development server**
+4. **Start the application with a single command**
    ```bash
    npm run dev
    ```
 
-   This will start both the React app (http://localhost:3000) and API server (http://localhost:3001).
+   This single command starts both the React app (http://localhost:3000) and API server (http://localhost:3001) simultaneously!
 
 ## 🔑 API Keys Setup
 

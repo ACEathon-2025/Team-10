@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "What is the main idea of 'Paying Yourself First'?",
-      options: ["Paying all your bills before saving", "Treating your savings and retirement contributions as a non-negotiable expense", "Spending your money on yourself first", "Buying things that make you happy"],
-      correctAnswer: "Treating your savings and retirement contributions as a non-negotiable expense"
-    },
-    {
-      question: "Why is it important to start retirement planning early?",
-      options: ["Because you get tax benefits only when you are young", "To give your money more time to grow through the power of compounding", "Because it is illegal to start late", "To impress your friends"],
-      correctAnswer: "To give your money more time to grow through the power of compounding"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const RetirementPlanning = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Retirement Planning</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Retirement Planning</h1>
-        <p className="module-intro">
-          Paying your future self first, so you can live comfortably later.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Paying your future self first, so you can live comfortably later.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is Retirement Planning?</h2>
           <p>
@@ -68,7 +53,7 @@ const RetirementPlanning = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="retirement-planning" />
         </section>
       </div>
     </div>

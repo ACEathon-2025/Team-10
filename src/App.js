@@ -27,7 +27,6 @@ import EducationLoans from './components/modules/EducationLoans';
 
 function App() {
   const [showAuthPage, setShowAuthPage] = useState(false);
-  const [showPlanPage, setShowPlanPage] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -41,8 +40,19 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  // Scroll to top whenever currentPage changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  // Scroll to top when showing auth page
+  useEffect(() => {
+    if (showAuthPage) {
+      window.scrollTo(0, 0);
+    }
+  }, [showAuthPage]);
+
   const toggleAuthPage = () => setShowAuthPage(!showAuthPage);
-  const togglePlanPage = () => setShowPlanPage(!showPlanPage);
 
   const handleLogout = async () => {
     try {
@@ -69,8 +79,7 @@ function App() {
   const handleReturnToPlanPage = () => {
     setPageTransitioning(true);
     setTimeout(() => {
-      setCurrentPage('home');
-      setShowPlanPage(true);
+      setCurrentPage('plan');
       setPageTransitioning(false);
     }, 200);
   };
@@ -84,6 +93,8 @@ function App() {
         return <LearnPage setCurrentPage={handleNavigation} />;
       case 'news':
         return <NewsUpdates />;
+      case 'plan':
+        return <PlanPage setCurrentPage={handleNavigation} />;
 
       // Plan Detail Pages
       case 'plan-503020':
@@ -117,7 +128,7 @@ function App() {
           user={user}
           onNavigateToLearn={handleNavigation}
           toggleAuthPage={toggleAuthPage}
-          togglePlanPage={togglePlanPage} 
+          setCurrentPage={handleNavigation}
         />;
     }
   };
@@ -129,18 +140,12 @@ function App() {
           <div className="loading-spinner"></div>
           <p>Loading...</p>
         </div>
-      ) : showPlanPage ? (
-        <PlanPage 
-          togglePlanPage={togglePlanPage} 
-          setCurrentPage={handleNavigation} 
-        />
       ) : showAuthPage ? (
         <AuthPage toggleAuthPage={toggleAuthPage} />
       ) : (
         <>
           <Header
             toggleAuthPage={toggleAuthPage}
-            togglePlanPage={togglePlanPage}
             setCurrentPage={handleNavigation}
             user={user}
             onLogout={handleLogout}

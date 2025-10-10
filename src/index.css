@@ -19,6 +19,7 @@
   --success-color: #27ae60;
   --success-hover: #219a52;
   --error-color: #e74c3c;
+  --error-hover: #c0392b;
   --warning-color: #f39c12;
   --info-color: #3498db;
   --warning-bg: #fff3cd;
@@ -47,6 +48,7 @@ body.dark-mode {
   --success-color: #27ae60;
   --success-hover: #219a52;
   --error-color: #e74c3c;
+  --error-hover: #c0392b;
   --warning-color: #f39c12;
   --info-color: #3498db;
   --warning-bg: #fff3cd;

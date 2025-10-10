@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "An education loan is considered 'good debt' because...",
-      options: ["It has no interest", "It never has to be paid back", "It is an investment in your future earning potential", "It is easy to get"],
-      correctAnswer: "It is an investment in your future earning potential"
-    },
-    {
-      question: "What is a 'moratorium period'?",
-      options: ["The period when you apply for the loan", "The period when the bank decides your interest rate", "A grace period after your course ends before you must start making payments", "The time it takes to pay back the loan"],
-      correctAnswer: "A grace period after your course ends before you must start making payments"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const EducationLoans = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Understanding Education Loans</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Understanding Education Loans</h1>
-        <p className="module-intro">
-          Investing in your greatest asset—yourself—with a little help.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            Investing in your greatest asset—yourself—with a little help.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is an Education Loan?</h2>
           <p>
@@ -75,7 +60,7 @@ const EducationLoans = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="education-loans" />
         </section>
       </div>
     </div>

@@ -301,6 +301,177 @@ const QuizComponent = ({ topic, onComplete = () => {} }) => {
           correct: 2,
           explanation: "The interest portion of education loans is tax-deductible under Section 80E of the Income Tax Act."
         }
+      ],
+      'what-is-budgeting': [
+        {
+          question: "What is the primary purpose of a budget?",
+          options: [
+            "To stop you from spending money",
+            "To give your money a plan and control",
+            "To track your past mistakes",
+            "To get a loan"
+          ],
+          correct: 1,
+          explanation: "A budget gives your money a clear plan and helps you maintain control over your finances."
+        },
+        {
+          question: "In the story, what was Priya's 'money leak'?",
+          options: [
+            "Buying clothes",
+            "Eating out for dinner",
+            "Daily fancy coffees",
+            "Subscribing to streaming services"
+          ],
+          correct: 2,
+          explanation: "Priya's daily fancy coffees were costing her ₹4,000 a month, which could have been saved for her trip."
+        },
+        {
+          question: "What should you do if you overspend in one category?",
+          options: [
+            "Give up on budgeting completely",
+            "Adjust other categories to compensate",
+            "Ignore it and continue spending",
+            "Stop using your cards"
+          ],
+          correct: 1,
+          explanation: "If you overspend in one area, adjust spending in other categories to stay within your overall budget."
+        },
+        {
+          question: "Why is tracking expenses important?",
+          options: [
+            "To feel guilty about spending",
+            "To understand where your money goes",
+            "To restrict all fun activities",
+            "To compare with friends"
+          ],
+          correct: 1,
+          explanation: "Tracking expenses helps you understand your spending patterns and make better financial decisions."
+        },
+        {
+          question: "What is the 50/30/20 rule?",
+          options: [
+            "Spend 50% on needs, 30% on wants, 20% on savings",
+            "Spend 50% on wants, 30% on needs, 20% on debt",
+            "Spend 50% on savings, 30% on needs, 20% on wants",
+            "Spend 50% on debt, 30% on wants, 20% on needs"
+          ],
+          correct: 0,
+          explanation: "The 50/30/20 rule suggests allocating 50% of income to needs, 30% to wants, and 20% to savings/debt repayment."
+        }
+      ],
+      'savings-accounts': [
+        {
+          question: "What is the main benefit of a savings account?",
+          options: [
+            "High-risk, high-return investments",
+            "It's a safe place to keep money and earn interest",
+            "It allows you to spend money easily",
+            "It's used for buying stocks"
+          ],
+          correct: 1,
+          explanation: "Savings accounts provide a safe place to store money while earning interest on your balance."
+        },
+        {
+          question: "What is compound interest?",
+          options: [
+            "Interest that is simple to calculate",
+            "Interest earned only on your initial deposit",
+            "Interest earned on both your initial deposit and the interest it has already earned",
+            "A type of loan"
+          ],
+          correct: 2,
+          explanation: "Compound interest means you earn interest on both your original deposit and the interest you've already earned."
+        },
+        {
+          question: "What is the minimum balance requirement for savings accounts?",
+          options: [
+            "Always ₹1 lakh",
+            "Varies by bank, can be ₹0-₹10,000",
+            "Always ₹50,000",
+            "No minimum balance needed"
+          ],
+          correct: 1,
+          explanation: "Minimum balance requirements vary by bank, ranging from ₹0 for zero-balance accounts to ₹10,000 or more."
+        },
+        {
+          question: "What is the current interest rate range for savings accounts?",
+          options: [
+            "1-2% per annum",
+            "3-7% per annum",
+            "10-15% per annum",
+            "20-25% per annum"
+          ],
+          correct: 1,
+          explanation: "Savings account interest rates typically range from 3-7% per annum, depending on the bank and balance."
+        },
+        {
+          question: "What is the magic of starting to save early?",
+          options: [
+            "You get higher interest rates",
+            "The power of compounding over time",
+            "Banks give you bonus money",
+            "You avoid all fees"
+          ],
+          correct: 1,
+          explanation: "Starting early allows compound interest to work for longer periods, significantly growing your savings."
+        }
+      ],
+      'emergency-funds': [
+        {
+          question: "What is the primary purpose of an emergency fund?",
+          options: [
+            "To invest in the stock market",
+            "To pay for planned vacations",
+            "To cover unexpected, urgent expenses",
+            "To buy luxury items"
+          ],
+          correct: 2,
+          explanation: "An emergency fund is specifically for covering unexpected expenses like medical emergencies, job loss, or urgent repairs."
+        },
+        {
+          question: "How much should you ideally save in an emergency fund?",
+          options: [
+            "1 month of income",
+            "3-6 months of essential living expenses",
+            "1 year of income",
+            "Enough to buy a new car"
+          ],
+          correct: 1,
+          explanation: "Financial experts recommend 3-6 months of essential living expenses as an emergency fund."
+        },
+        {
+          question: "Where should you keep your emergency fund?",
+          options: [
+            "In the stock market",
+            "In a high-yield savings account or liquid fund",
+            "Under your mattress",
+            "In cryptocurrency"
+          ],
+          correct: 1,
+          explanation: "Emergency funds should be kept in easily accessible, low-risk options like savings accounts or liquid funds."
+        },
+        {
+          question: "When should you use your emergency fund?",
+          options: [
+            "For planned purchases",
+            "For investment opportunities",
+            "Only for true emergencies",
+            "Whenever you need cash"
+          ],
+          correct: 2,
+          explanation: "Emergency funds should only be used for genuine emergencies, not for planned expenses or investments."
+        },
+        {
+          question: "What is the best way to build an emergency fund?",
+          options: [
+            "Save a lump sum all at once",
+            "Set aside a small amount regularly",
+            "Borrow money when needed",
+            "Skip saving and use credit cards"
+          ],
+          correct: 1,
+          explanation: "Building an emergency fund gradually by setting aside a small amount regularly is more sustainable and achievable."
+        }
       ]
     };
 

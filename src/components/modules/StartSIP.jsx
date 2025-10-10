@@ -1,39 +1,24 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import './ModuleDetail.css';
-import Quiz from './Quiz';
-
-const quizQuestions = [
-    {
-      question: "What does SIP stand for?",
-      options: ["Systematic Income Plan", "Simple Investment Plan", "Systematic Investment Plan", "Secure Investment Portfolio"],
-      correctAnswer: "Systematic Investment Plan"
-    },
-    {
-      question: "What is the main advantage of an SIP, as shown in the story of the two gardeners?",
-      options: ["It guarantees high returns", "It helps you time the market perfectly", "It averages out your purchase cost over time (Rupee Cost Averaging)", "It is a short-term investment"],
-      correctAnswer: "It averages out your purchase cost over time (Rupee Cost Averaging)"
-    }
-];
+import './ModuleStyles.css';
+import QuizComponent from './QuizComponent';
 
 const StartSIP = ({ onBack }) => {
   return (
-    <div className="module-container">
-      <div className="back-button-wrapper">
+    <div className="module-page">
+      <div className="module-header">
         <button className="back-button" onClick={onBack}>
-          <FaArrowLeft className="back-button-icon" />
-          <span>Back to Learn</span>
+          <FaArrowLeft />
         </button>
+        <h1>Starting an SIP</h1>
       </div>
 
-      <header className="module-header">
-        <h1 className="module-title">Starting an SIP</h1>
-        <p className="module-intro">
-          The simple, powerful way to build wealth one small step at a time.
-        </p>
-      </header>
-
       <div className="module-content">
+        <section className="module-section">
+          <p className="module-intro">
+            The simple, powerful way to build wealth one small step at a time.
+          </p>
+        </section>
         <section className="module-section">
           <h2>What is a Systematic Investment Plan?</h2>
           <p>
@@ -68,7 +53,7 @@ const StartSIP = ({ onBack }) => {
         
         <section className="module-section quiz-section">
           <h2>Test Your Knowledge</h2>
-          <Quiz questions={quizQuestions} />
+          <QuizComponent topic="sip" />
         </section>
       </div>
     </div>

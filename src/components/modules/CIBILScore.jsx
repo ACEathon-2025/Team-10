@@ -6,7 +6,8 @@ import DynamicFAQ from './DynamicFAQ';
 import QuizComponent from './QuizComponent';
 import './ModuleStyles.css';
 
-const CIBILScore = ({ setCurrentPage }) => {
+// 1. CHANGE: Expect 'onBack' prop for consistency
+const CIBILScore = ({ onBack }) => {
   const [currentScore, setCurrentScore] = useState(650);
   const [utilization, setUtilization] = useState(40);
   const [missedPayments, setMissedPayments] = useState(0);
@@ -34,7 +35,8 @@ const CIBILScore = ({ setCurrentPage }) => {
   return (
     <div className="module-page">
       <div className="module-header">
-        <button className="back-button" onClick={() => setCurrentPage('learn')}>
+        {/* 2. CHANGE: Added the text and updated the onClick function */}
+        <button className="back-button" onClick={onBack}>
           <FaArrowLeft />
         </button>
         <h1>Understand CIBIL Score</h1>
