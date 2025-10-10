@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FaQuestionCircle, FaChevronDown, FaChevronUp, FaSearch, FaSync } from 'react-icons/fa';
 import './ModuleStyles.css';
 
@@ -218,7 +218,7 @@ const DynamicFAQ = ({ topic, searchQuery = '' }) => {
   };
 
   // Simulate API call to fetch/update FAQs
-  const fetchFAQs = async () => {
+  const fetchFAQs = useCallback(async () => {
     setLoading(true);
     try {
       // Simulate API delay
@@ -232,11 +232,11 @@ const DynamicFAQ = ({ topic, searchQuery = '' }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [topic, searchQuery]);
 
   useEffect(() => {
     fetchFAQs();
-  }, [topic, searchQuery]);
+  }, [topic, searchQuery, fetchFAQs]);
 
   const toggleExpanded = (index) => {
     const newExpanded = new Set(expandedItems);

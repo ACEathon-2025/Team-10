@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './NewsUpdates.css';
 
 const NewsUpdates = () => {
@@ -11,7 +11,7 @@ const NewsUpdates = () => {
   const categories = ['All', 'Stocks', 'Cryptocurrency', 'Banking', 'Economy', 'General Finance'];
 
   // Mock data for when API is not available
-  const mockNews = [
+  const mockNews = useMemo(() => [
     {
       id: 1,
       title: "RBI Announces New Digital Currency Framework",
@@ -62,10 +62,10 @@ const NewsUpdates = () => {
       category: "Banking",
       url: "#"
     }
-  ];
+  ], []);
 
   // Fetch news from our Vercel API
-  const fetchNews = async () => {
+  const fetchNews = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -98,7 +98,7 @@ const NewsUpdates = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [mockNews]);
 
   // Filter news by category
   const filteredNews = selectedCategory === 'All'
@@ -133,7 +133,7 @@ const NewsUpdates = () => {
     const interval = setInterval(fetchNews, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [fetchNews]);
 
   if (loading && news.length === 0) {
     return (
